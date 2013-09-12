@@ -86,6 +86,13 @@ class BinaryTree {
 
 	void printInOrder() {
 		// left root right
+		if (left != null)
+			left.printInOrder();
+		if (root != null)
+			System.out.print(root.getValue() + " ");
+		if (right != null)
+			right.printInOrder();
+		
 	}
 
 	void printPreOrder() {
@@ -100,7 +107,6 @@ class BinaryTree {
 			right.printPostOrder();
 		if (root != null)
 			System.out.print(root.getValue() + " ");
-
 	}
 
 	public BinaryTree buildBinaryTree(int[] nodevalue) {
@@ -140,14 +146,21 @@ class BinaryTree {
 
 		// Use user values to build tree
 		int[] nodevalue = new int[] { 5, 7, 2, 1, 4, 6, 8 };
+		
 		tree = tree.buildBinaryTree(nodevalue);
 		/*
 		 * tree.traversePreOrder(); System.out.println();
 		 * tree.traverseInOrder(); System.out.println();
 		 * tree.traversePostOrder(); System.out.println();
 		 */
+		System.out.println("Print Post Order");
 		tree.printPostOrder();
 		System.out.println();
+		
+		System.out.println("Print In Order");
+		tree.printInOrder();
+		System.out.println();		
+
 
 	}
 
